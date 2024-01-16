@@ -1,0 +1,14 @@
+CREATE TABLE Products(
+Id INT PRIMARY KEY IDENTITY, 
+Name VARCHAR(255) NOT NULL);
+
+CREATE TABLE Categories(
+Id INT PRIMARY KEY IDENTITY,
+Name VARCHAR(255) NOT NULL);
+
+CREATE TABLE ProductsCategories(
+ProductId INT NOT NULL,
+CategoryId INT NOT NULL,
+FOREIGN KEY(ProductId) REFERENCES Products(Id),
+FOREIGN KEY(CategoryId) REFERENCES Categories(Id),
+PRIMARY KEY(ProductId, CategoryId));
